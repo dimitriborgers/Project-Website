@@ -1,3 +1,6 @@
+/* ------------------------------------------------ */
+/*          Shared by home.html, videos.html        */
+/* ------------------------------------------------ */
 .title {
     color: #fff;
     background-color: #337ab7;
@@ -5,21 +8,13 @@
     padding-bottom: 15px;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
-}
-
-.navTop {
-    /*padding-top: 25px;*/
-}
-
 .searchBar {
     padding-top: 5px;
     padding-bottom: 20px;
 }
-
+/* ------------------------------------------------ */
+/*                     home.html                    */
+/* ------------------------------------------------ */
 .padding-input {
     padding-right:1px;
 }
@@ -28,6 +23,54 @@
     padding-left:1px;
 }
 
+.image {
+    padding-left:35px;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.img-wrapper .btn1 {
+    position: absolute;
+    top: 33%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    padding: 12px 20px;
+    background:transparent;
+    border: none;
+    color:transparent;
+}
+
+.img-wrapper .btn2 {
+    position: absolute;
+    top: 37%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    padding: 12px 20px;
+    background:transparent;
+    border: none;
+    color:transparent;
+}
+
+.img-wrapper .btn3 {
+    position: absolute;
+    top: 45%;
+    left: 100%;
+    transform: translate(45%, -52%);
+    font-size: 12px;
+    padding: 12px 20px;
+    background:transparent;
+    border: none;
+    color:transparent;
+}
+/* ------------------------------------------------ */
+/*                    videos.html                   */
+/* ------------------------------------------------ */
 .empty-content {
     background-color: #337ab7;
     padding-bottom: 30px;

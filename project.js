@@ -2,10 +2,9 @@
 /*                  Variables                     */
 /* ---------------------------------------------- */
 var muscles = [
-    "Trapezius",
-    "Latissimus Dorsi",
-    "External Oblique",
-    "Recuts Abdominus"
+    "Lats",
+    "Middle Back",
+    "Lower Back",
 ]
 /* ---------------------------------------------- */
 /*              Submission on Home                */
@@ -23,6 +22,7 @@ function find() {
 /* ---------------------------------------------- */
 /*               Adding to Clipboard              */
 /* ---------------------------------------------- */
+/*
 function addVideo() {
     $("#browse").hide();
     $("#clipsFull").show();
@@ -31,6 +31,7 @@ function addVideo() {
     $(".nav li").removeClass("active");
     $("#clipboard-lat").addClass("active");
 }
+*/
 /* ---------------------------------------------- */
 /*                  Doc.ready                     */
 /* ---------------------------------------------- */
