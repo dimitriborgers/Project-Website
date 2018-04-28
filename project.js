@@ -33,6 +33,10 @@ function addVideo() {
     $("#clipboard-lat").addClass("active");
 }
 */
+
+function refresh() {
+    location.reload();
+}
 /* ---------------------------------------------- */
 /*                  Doc.ready                     */
 /* ---------------------------------------------- */

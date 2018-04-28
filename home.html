@@ -88,7 +88,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--                        Diagram                      -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <div class="row">
+        <div class="row" id="green1">
             <img src="BackSections.png" alt="Back Sections" class="image">
             <button class="btn1">Button</button>
             <button class="btn2">Button</button>
@@ -102,7 +102,20 @@
     <div id="schedule">
         <div class="row">
             <div class="schedule">
-                Hi there
+                <font size="6">Workout Schedule</font></br>
+                <p>Current videos for your routine.</p>
+            </div>
+            <div class="clearButton">
+                <button class="btn-primary refresh" onclick="refresh()">Clear Selections</button><br></br>
+            </div>
+            <div class="col-lg-4 col-lg-offset-1">
+                <div class="addedVideos">
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-1">
+                <div class="notes">
+                </div>
             </div>
         </div>
     </div>
@@ -112,7 +125,8 @@
     <div id="lats">
         <div class="row">
             <div class="videoTitle">
-                <font size="6">Muscle Part: Lats</font>
+                <font size="6">Muscle Part: Lats</font></br>
+                Find the workout that works best for you, play with it, and then add it to your schedule!
             </div>
         </div>
         <br></br>
@@ -124,18 +138,57 @@
                 <video id="lats1" width="560" controls>
                     <source src="lats1.mp4" type="video/mp4">
                 </video>
+                <button class="btn-primary speed" onclick="normalSpeed()">1x</button>
+                <button class="btn-primary speed" onclick="twoSpeed()">2x</button>
+                <button class="btn-primary speed" onclick="threeSpeed()">3x</button>
+                <button class="btn-primary" onclick="enableLoop()">loop on</button>
+                <button class="btn-primary" onclick="enableLoop()">loop off</button>
+                <input type="text" style="width: 60px" placeholder="Start" id="start">
+                <input type="text" style="width: 60px" placeholder="Stop" id="stop">
+                <button class="btn-primary timer" onclick="setTime()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid1()">Add Video</button>
                 <!-- JS must go in html to work -->
                 <script>
-                var myVideo = document.getElementById("lats1");
-                function playPause() {
-                    if (myVideo.paused)
-                        myVideo.play();
-                    else
-                        myVideo.pause();
+                var vid = document.getElementById("lats1");
+                function normalSpeed() {
+                    vid.playbackRate = 1.0;
+                }
+                function twoSpeed() {
+                    vid.playbackRate = 2.0;
+                }
+                function threeSpeed() {
+                    vid.playbackRate = 3.0;
+                }
+                function setTime() {
+                    var start = document.getElementById("start").value;
+                    var stop = document.getElementById("stop").value;
+                    if (start != "" && isNaN(start) == false) {
+                        vid.currentTime = start;
+                    }
+                }
+                vid.ontimeupdate = function() {setPause()};
+                function setPause() {
+                    if (vid.currentTime > 3) {
+                        vid.pause();
+                    }
+                }
+                function enableLoop() {
+                    vid.loop = true;
+                }
+                function disableLoop() {
+                    vid.loop = false;
+                }
+                function addVid1() {
+                    $('#green1').append('<button class="btn4">Button</button>');
+                    $('.addedVideos').append('<video id="lats1" width="560" controls><source src="lats1.mp4" type="video/mp4"</video>');
+                    $('.notes').append('<textarea class="form-control" placeholder="Add some notes to remind yourself!" rows="14"></textarea>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
                 }
                 </script>
-                <button onclick="playPause()">Play/Pause</button>
-                <!-- <textarea class="form-control" placeholder="Add some notes to remind yourself!" rows="3"></textarea> -->
+                <!-- <textarea class="" placeholder="Add some notes to remind yourself!" rows="3"></textarea> -->
             </div>
             <div class="col-lg-5">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/zfyXVALi2T8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

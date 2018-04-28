@@ -64,7 +64,7 @@
 
 .btn4 {
     position: absolute;
-    top: 57%;
+    top: 55%;
     left: 42.2%;
     transform: translate(-100%, -54%);
     font-size: 0px;
@@ -103,11 +103,20 @@
     box-shadow: 0 0 3px #4CAF50;
     border-radius: 25px;
 }
-
-.schedule {
+.addedVideos {
     font-size: 20px;
     text-align:center;
     color: #696969;
+}
+
+.schedule {
+    padding-top: 10px;
+    font-size: 20px;
+    text-align:center;
+    color: #696969;
+    border-top-style: solid;
+    border-top-color: #696969;
+    border-top-width: 1px;
 }
 
 .videoTitle {
@@ -115,6 +124,17 @@
     font-size: 20px;
     text-align:center;
     color: #696969;
+}
+
+.clearButton {
+    font-size: 20px;
+    text-align:center;
+    color: #696969;
+    padding-top: 15px;
+}
+
+.refresh {
+    border-radius: 25px;
 }
 /* ------------------------------------------------ */
 /*                      Unused                      */
