@@ -24,7 +24,7 @@
 }
 
 .instructions {
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 40px;
     font-size: 20px;
     text-align:center;
@@ -32,7 +32,11 @@
 }
 
 .image {
-    padding-left:65px;
+    text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid #021a40;
 }
 
 .img-wrapper {
@@ -51,6 +55,7 @@
     background:transparent;
     border: none;
     color:transparent;
+    z-index: 100;
 }
 
 .img-wrapper .btn2 {
@@ -63,6 +68,7 @@
     background:transparent;
     border: none;
     color:transparent;
+    z-index: 100;
 }
 
 .img-wrapper .btn3 {
@@ -75,6 +81,7 @@
     background:transparent;
     border: none;
     color:transparent;
+    z-index: 100;
 }
 
 .img-wrapper .btn4 {
