@@ -76,7 +76,7 @@
     border-radius: 25px;
 }
 
-.img-wrapper .btn5 {
+.btn5 {
     position: absolute;
     top: 50%;
     left: 44%;
@@ -90,7 +90,7 @@
     border-radius: 25px;
 }
 
-.img-wrapper .btn6 {
+.btn6 {
     position: absolute;
     top: 50%;
     left: 44%;
@@ -102,6 +102,19 @@
     color:transparent;
     box-shadow: 0 0 3px #4CAF50;
     border-radius: 25px;
+}
+
+.schedule {
+    font-size: 20px;
+    text-align:center;
+    color: #696969;
+}
+
+.videoTitle {
+    padding-top: 20px;
+    font-size: 20px;
+    text-align:center;
+    color: #696969;
 }
 /* ------------------------------------------------ */
 /*                      Unused                      */

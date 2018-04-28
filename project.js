@@ -1,25 +1,25 @@
 /* ---------------------------------------------- */
 /*                  Variables                     */
 /* ---------------------------------------------- */
-var muscles = [
-    "Lats",
-    "Middle Back",
-    "Lower Back",
-]
+// var muscles = [
+//     "Lats",
+//     "Middle Back",
+//     "Lower Back",
+// ]
 /* ---------------------------------------------- */
 /*              Submission on Home                */
 /* ---------------------------------------------- */
-function find() {
-    var input1 = document.getElementById("search").value;
-    var temp = muscles.includes(input1);
-    var input = input1.replace(/\s+/g,'').trim();
-    if (input1 == "") {
-        document.getElementById("search").focus();
-    }
-    else if (temp == true) {
-        document.location.href = input + ".html";
-    }
-};
+// function find() {
+//     var input1 = document.getElementById("search").value;
+//     var temp = muscles.includes(input1);
+//     var input = input1.replace(/\s+/g,'').trim();
+//     if (input1 == "") {
+//         document.getElementById("search").focus();
+//     }
+//     else if (temp == true) {
+//         document.location.href = input + ".html";
+//     }
+// };
 /* ---------------------------------------------- */
 /*               Adding to Clipboard              */
 /* ---------------------------------------------- */
@@ -38,28 +38,37 @@ function addVideo() {
 /* ---------------------------------------------- */
 $(document).ready(function(){
     //make autocomplete possible
-    $(function() {
-        $("#search").autocomplete({
-            source: muscles
-        });
-    });
+    // $(function() {
+    //     $("#search").autocomplete({
+    //         source: muscles
+    //     });
+    // });
 
     //make pressing enter possible
-    $("#search").keyup(function(event) {
-        if (event.keyCode === 13) {
-            $("#submit").click();
-        }
+    // $("#search").keyup(function(event) {
+    //     if (event.keyCode === 13) {
+    //         $("#submit").click();
+    //     }
+    // });
+    $(".title").click(function(){
+        $("#introduction").show();
+        $("#images").show();
+        $("#schedule").hide();
+        $("#lats").hide();
     });
-
+    $(".title").trigger('click');
     //alternate between Videos and Clipboard
-    $("#clipboard-lat").click(function(){
-        $("#browse").hide();
-        $("#clipsEmpty").show();
+    $(".btn1").click(function(){
+        $("#introduction").show();
+        $("#images").hide();
+        $("#schedule").hide();
+        $("#lats").show();
     });
+    // document.getElementById("lats1").currentTime = 5;
 
     //switch active nav bar buttons
-    $(".nav li").click(function() {
-        $(".nav li").removeClass("active");
-        $(this).addClass("active");
-    });
+    // $(".nav li").click(function() {
+    //     $(".nav li").removeClass("active");
+    //     $(this).addClass("active");
+    // });
 });
