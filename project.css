@@ -1,26 +1,11 @@
 /* ------------------------------------------------ */
-/*          Shared by home.html, videos.html        */
+/*                     home.html                    */
 /* ------------------------------------------------ */
 .title {
     color: #fff;
     background-color: #337ab7;
     border-color: #2e6da4;
     padding-bottom: 15px;
-}
-
-.searchBar {
-    padding-top: 5px;
-    padding-bottom: 20px;
-}
-/* ------------------------------------------------ */
-/*                     home.html                    */
-/* ------------------------------------------------ */
-.padding-input {
-    padding-right:1px;
-}
-
-.padding-submit {
-    padding-left:1px;
 }
 
 .instructions {
@@ -36,61 +21,54 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border:1px solid #021a40;
 }
 
-.img-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-}
-
-.img-wrapper .btn1 {
+.btn1 {
     position: absolute;
-    top: 33%;
-    left: 23%;
+    top: 47.5%;
+    left: 36.5%;
     transform: translate(-50%, -50%);
-    font-size: 12px;
     padding: 12px 20px;
     background:transparent;
     border: none;
     color:transparent;
     z-index: 100;
+    opacity: 0;
 }
 
-.img-wrapper .btn2 {
-    position: absolute;
-    top: 37%;
-    left: 71%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    padding: 12px 20px;
-    background:transparent;
-    border: none;
-    color:transparent;
-    z-index: 100;
-}
-
-.img-wrapper .btn3 {
-    position: absolute;
-    top: 45%;
-    left: 100%;
-    transform: translate(45%, -52%);
-    font-size: 12px;
-    padding: 12px 20px;
-    background:transparent;
-    border: none;
-    color:transparent;
-    z-index: 100;
-}
-
-.img-wrapper .btn4 {
+.btn2 {
     position: absolute;
     top: 50%;
-    left: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px 20px;
+    background:transparent;
+    border: none;
+    color:transparent;
+    z-index: 100;
+    opacity: 0;
+}
+
+.btn3 {
+    position: absolute;
+    top: 54%;
+    left: 57.5%;
+    transform: translate(45%, -52%);
+    padding: 12px 20px;
+    background:transparent;
+    border: none;
+    color:transparent;
+    z-index: 100;
+    opacity: 0;
+}
+
+.btn4 {
+    position: absolute;
+    top: 57%;
+    left: 42.2%;
     transform: translate(-100%, -54%);
-    font-size: 12px;
-    padding: 180px 60px;
+    font-size: 0px;
+    padding: 180px 75px;
     background:transparent;
     border: 2px solid #4CAF50;
     color:transparent;
@@ -125,17 +103,28 @@
     box-shadow: 0 0 3px #4CAF50;
     border-radius: 25px;
 }
-
-
 /* ------------------------------------------------ */
-/*                    videos.html                   */
+/*                      Unused                      */
 /* ------------------------------------------------ */
+.searchBar {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
 .empty-content {
     background-color: #337ab7;
     padding-bottom: 30px;
     padding-top: 30px;
     color: #fff;
     border-radius: 25px;
+}
+
+.padding-input {
+    padding-right:1px;
+}
+
+.padding-submit {
+    padding-left:1px;
 }
 
 .space {
