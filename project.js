@@ -10,9 +10,10 @@ var muscles = [
 /*              Submission on Home                */
 /* ---------------------------------------------- */
 function find() {
-    var input = document.getElementById("search").value;
-    var temp = muscles.includes(input);
-    if (input == "") {
+    var input1 = document.getElementById("search").value;
+    var temp = muscles.includes(input1);
+    var input = input1.replace(/\s+/g,'').trim();
+    if (input1 == "") {
         document.getElementById("search").focus();
     }
     else if (temp == true) {
