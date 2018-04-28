@@ -141,12 +141,13 @@
                 <button class="btn-primary speed" onclick="normalSpeed()">1x</button>
                 <button class="btn-primary speed" onclick="twoSpeed()">2x</button>
                 <button class="btn-primary speed" onclick="threeSpeed()">3x</button>
-                <button class="btn-primary" onclick="enableLoop()">loop on</button>
-                <button class="btn-primary" onclick="enableLoop()">loop off</button>
-                <input type="text" style="width: 60px" placeholder="Start" id="start">
-                <input type="text" style="width: 60px" placeholder="Stop" id="stop">
+                <button class="btn-primary" onclick="enableLoop()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop()">Loop off</button>
+                <input type="text" style="width: 40px" placeholder="Start" id="start">
+                <input type="text" style="width: 40px" placeholder="Stop" id="stop">
                 <button class="btn-primary timer" onclick="setTime()">Set Start/Stop</button>
                 <button class="btn-primary adding" onclick="addVid1()">Add Video</button>
+                <p>Time in seconds: <span id="demo"></span></p>
                 <!-- JS must go in html to work -->
                 <script>
                 var vid = document.getElementById("lats1");
@@ -161,15 +162,30 @@
                 }
                 function setTime() {
                     var start = document.getElementById("start").value;
-                    var stop = document.getElementById("stop").value;
                     if (start != "" && isNaN(start) == false) {
                         vid.currentTime = start;
                     }
                 }
                 vid.ontimeupdate = function() {setPause()};
+                vid.ontimeupdate = function() {showTime()};
+                function showTime() {
+                    var time = Math.round(vid.currentTime);
+                    document.getElementById("demo").innerHTML = time;
+                }
                 function setPause() {
-                    if (vid.currentTime > 3) {
-                        vid.pause();
+                    var stop = document.getElementById("stop").value;
+                    var start = document.getElementById("start").value;
+                    if (stop != "" && isNaN(stop) == false) {
+                        if (vid.currentTime > stop) {
+                            vid.pause();
+                            if (start == "") {
+                                vid.currentTime = 0;
+                            }
+                            setTime();
+                            if (vid.loop == true) {
+                                vid.play();
+                            }
+                        }
                     }
                 }
                 function enableLoop() {

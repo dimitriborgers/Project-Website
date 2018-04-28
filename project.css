@@ -7,7 +7,6 @@
     border-color: #2e6da4;
     padding-bottom: 15px;
 }
-
 .instructions {
     padding-top: 20px;
     padding-bottom: 40px;
@@ -15,7 +14,6 @@
     text-align:center;
     color: #696969;
 }
-
 .image {
     text-align:center;
     display: block;
@@ -35,7 +33,6 @@
     z-index: 100;
     opacity: 0;
 }
-
 .btn2 {
     position: absolute;
     top: 50%;
@@ -48,7 +45,6 @@
     z-index: 100;
     opacity: 0;
 }
-
 .btn3 {
     position: absolute;
     top: 54%;
@@ -61,7 +57,6 @@
     z-index: 100;
     opacity: 0;
 }
-
 .btn4 {
     position: absolute;
     top: 55%;
@@ -75,7 +70,6 @@
     box-shadow: 0 0 3px #4CAF50;
     border-radius: 25px;
 }
-
 .btn5 {
     position: absolute;
     top: 50%;
@@ -89,7 +83,6 @@
     box-shadow: 0 0 3px #4CAF50;
     border-radius: 25px;
 }
-
 .btn6 {
     position: absolute;
     top: 50%;
@@ -108,7 +101,6 @@
     text-align:center;
     color: #696969;
 }
-
 .schedule {
     padding-top: 10px;
     font-size: 20px;
@@ -118,14 +110,12 @@
     border-top-color: #696969;
     border-top-width: 1px;
 }
-
 .videoTitle {
     padding-top: 20px;
     font-size: 20px;
     text-align:center;
     color: #696969;
 }
-
 .clearButton {
     font-size: 20px;
     text-align:center;
