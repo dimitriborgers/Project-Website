@@ -93,7 +93,6 @@
             <button class="btn1">Button</button>
             <button class="btn2">Button</button>
             <button class="btn3">Button</button>
-            <!-- <button class="btn4">Button</button> -->
         </div>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -108,15 +107,15 @@
             <div class="clearButton">
                 <button class="btn-primary refresh" onclick="refresh()">Clear Selections</button><br></br>
             </div>
-            <div class="col-lg-4 col-lg-offset-1">
+            <div class="col">
                 <div class="addedVideos">
 
                 </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-1">
+<!--             <div class="col-lg-4 col-lg-offset-1">
                 <div class="notes">
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -131,22 +130,22 @@
         </div>
         <br></br>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <!--                       Videos                        -->
+    <!--                      Lat Videos                     -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <div class="row justify-content-center">
             <div class="col-lg-5 col-lg-offset-1">
                 <video id="lats1" width="560" controls>
                     <source src="lats1.mp4" type="video/mp4">
                 </video>
-                <button class="btn-primary speed" onclick="normalSpeed()">1x</button>
-                <button class="btn-primary speed" onclick="twoSpeed()">2x</button>
-                <button class="btn-primary speed" onclick="threeSpeed()">3x</button>
+                <button class="btn-primary" onclick="normalSpeed()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed()">3x</button>
                 <button class="btn-primary" onclick="enableLoop()">Loop on</button>
                 <button class="btn-primary" onclick="disableLoop()">Loop off</button>
-                <input type="text" style="width: 40px" placeholder="Start" id="start">
-                <input type="text" style="width: 40px" placeholder="Stop" id="stop">
+                <input type="text" style="width: 56px" placeholder="Start" id="start">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop">
                 <button class="btn-primary timer" onclick="setTime()">Set Start/Stop</button>
-                <button class="btn-primary adding" onclick="addVid1()">Add Video</button>
+                <button class="btn-primary adding" onclick="addVid()">Add Video</button>
                 <p>Time in seconds: <span id="demo"></span></p>
                 <!-- JS must go in html to work -->
                 <script>
@@ -166,12 +165,7 @@
                         vid.currentTime = start;
                     }
                 }
-                vid.ontimeupdate = function() {setPause()};
-                vid.ontimeupdate = function() {showTime()};
-                function showTime() {
-                    var time = Math.round(vid.currentTime);
-                    document.getElementById("demo").innerHTML = time;
-                }
+                vid.ontimeupdate = function() {setPause(), showTime()};
                 function setPause() {
                     var stop = document.getElementById("stop").value;
                     var start = document.getElementById("start").value;
@@ -188,27 +182,442 @@
                         }
                     }
                 }
+                function showTime() {
+                    var time = Math.round(vid.currentTime);
+                    document.getElementById("demo").innerHTML = time;
+                }
                 function enableLoop() {
                     vid.loop = true;
                 }
                 function disableLoop() {
                     vid.loop = false;
                 }
-                function addVid1() {
+                function addVid() {
+                    vid.pause();
                     $('#green1').append('<button class="btn4">Button</button>');
                     $('.addedVideos').append('<video id="lats1" width="560" controls><source src="lats1.mp4" type="video/mp4"</video>');
-                    $('.notes').append('<textarea class="form-control" placeholder="Add some notes to remind yourself!" rows="14"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
                     $("#introduction").show();
                     $("#images").show();
                     $("#schedule").show();
                     $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
                 }
                 </script>
-                <!-- <textarea class="" placeholder="Add some notes to remind yourself!" rows="3"></textarea> -->
             </div>
             <div class="col-lg-5">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/zfyXVALi2T8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <!-- <textarea class="form-control" placeholder="Add some notes to remind yourself!" rows="3"></textarea> -->
+                <video id="lats2" width="560" controls>
+                    <source src="lats2.mp4" type="video/mp4">
+                </video>
+                <button class="btn-primary" onclick="normalSpeed1()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed1()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed1()">3x</button>
+                <button class="btn-primary" onclick="enableLoop1()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop1()">Loop off</button>
+                <input type="text" style="width: 56px" placeholder="Start" id="start1">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop1">
+                <button class="btn-primary timer" onclick="setTime1()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid1()">Add Video</button>
+                <p>Time in seconds: <span id="demo1"></span></p>
+                <!-- JS must go in html to work -->
+                <script>
+                var vid1 = document.getElementById("lats2");
+                function normalSpeed1() {
+                    vid1.playbackRate = 1.0;
+                }
+                function twoSpeed1() {
+                    vid1.playbackRate = 2.0;
+                }
+                function threeSpeed1() {
+                    vid1.playbackRate = 3.0;
+                }
+                function setTime1() {
+                    var start1 = document.getElementById("start1").value;
+                    if (start1 != "" && isNaN(start1) == false) {
+                        vid1.currentTime = start1;
+                    }
+                }
+                vid1.ontimeupdate = function() {setPause1(), showTime1()};
+                function setPause1() {
+                    var stop1 = document.getElementById("stop1").value;
+                    var start1 = document.getElementById("start1").value;
+                    if (stop1 != "" && isNaN(stop1) == false) {
+                        if (vid1.currentTime > stop1) {
+                            vid1.pause();
+                            if (start1 == "") {
+                                vid1.currentTime = 0;
+                            }
+                            setTime1();
+                            if (vid1.loop == true) {
+                                vid1.play();
+                            }
+                        }
+                    }
+                }
+                function showTime1() {
+                    var time1 = Math.round(vid1.currentTime);
+                    document.getElementById("demo1").innerHTML = time1;
+                }
+                function enableLoop1() {
+                    vid1.loop = true;
+                }
+                function disableLoop1() {
+                    vid1.loop = false;
+                }
+                function addVid1() {
+                    vid1.pause();
+                    $('#green1').append('<button class="btn4">Button</button>');
+                    $('.addedVideos').append('<video id="lats2" width="560" controls><source src="lats2.mp4" type="video/mp4"</video>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                   Middle Back                       -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <div id="middleBack">
+        <div class="row">
+            <div class="videoTitle">
+                <font size="6">Muscle Part: Middle Back</font></br>
+                Find the workout that works best for you, play with it, and then add it to your schedule!
+            </div>
+        </div>
+        <br></br>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                  Middle Back Videos                 -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-lg-offset-1">
+                <video id="middleBack1" width="560" controls>
+                    <source src="middleBack1.mp4" type="video/mp4">
+                </video>
+                <button class="btn-primary" onclick="normalSpeed2()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed2()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed2()">3x</button>
+                <button class="btn-primary" onclick="enableLoop2()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop2()">Loop off</button>
+                <input type="text" style="width: 56px" placeholder="Start" id="start2">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop2">
+                <button class="btn-primary timer" onclick="setTime2()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid2()">Add Video</button>
+                <p>Time in seconds: <span id="demo2"></span></p>
+                <!-- JS must go in html to work -->
+                <script>
+                var vid2 = document.getElementById("middleBack1");
+                function normalSpeed2() {
+                    vid2.playbackRate = 1.0;
+                }
+                function twoSpeed2() {
+                    vid2.playbackRate = 2.0;
+                }
+                function threeSpeed2() {
+                    vid2.playbackRate = 3.0;
+                }
+                function setTime2() {
+                    var start2 = document.getElementById("start2").value;
+                    if (start2 != "" && isNaN(start2) == false) {
+                        vid2.currentTime = start2;
+                    }
+                }
+                vid2.ontimeupdate = function() {setPause2(), showTime2()};
+                function setPause2() {
+                    var stop2 = document.getElementById("stop2").value;
+                    var start2 = document.getElementById("start2").value;
+                    if (stop2 != "" && isNaN(stop2) == false) {
+                        if (vid2.currentTime > stop2) {
+                            vid2.pause();
+                            if (start2 == "") {
+                                vid2.currentTime = 0;
+                            }
+                            setTime2();
+                            if (vid2.loop == true) {
+                                vid2.play();
+                            }
+                        }
+                    }
+                }
+                function showTime2() {
+                    var time2 = Math.round(vid2.currentTime);
+                    document.getElementById("demo2").innerHTML = time2;
+                }
+                function enableLoop2() {
+                    vid2.loop = true;
+                }
+                function disableLoop2() {
+                    vid2.loop = false;
+                }
+                function addVid2() {
+                    vid2.pause();
+                    $('#green1').append('<button class="btn5">Button</button>');
+                    $('.addedVideos').append('<video id="middleBack1" width="560" controls><source src="middleBack1.mp4" type="video/mp4"</video>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
+                }
+                </script>
+            </div>
+            <div class="col-lg-5">
+                <video id="middleBack2" width="560" controls>
+                    <source src="middleBack2.mp4" type="video/mp4">
+                </video>
+                <button class="btn-primary" onclick="normalSpeed3()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed3()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed3()">3x</button>
+                <button class="btn-primary" onclick="enableLoop3()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop3()">Loop off</button>
+                <input type="text" style="width: 56px" placeholder="Start" id="start3">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop3">
+                <button class="btn-primary timer" onclick="setTime3()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid3()">Add Video</button>
+                <p>Time in seconds: <span id="demo3"></span></p>
+                <!-- JS must go in html to work -->
+                <script>
+                var vid3 = document.getElementById("middleBack2");
+                function normalSpeed3() {
+                    vid3.playbackRate = 1.0;
+                }
+                function twoSpeed3() {
+                    vid3.playbackRate = 2.0;
+                }
+                function threeSpeed3() {
+                    vid3.playbackRate = 3.0;
+                }
+                function setTime3() {
+                    var start3 = document.getElementById("start3").value;
+                    if (start3 != "" && isNaN(start3) == false) {
+                        vid3.currentTime = start3;
+                    }
+                }
+                vid3.ontimeupdate = function() {setPause3(), showTime3()};
+                function setPause3() {
+                    var stop3 = document.getElementById("stop3").value;
+                    var start3 = document.getElementById("start3").value;
+                    if (stop3 != "" && isNaN(stop3) == false) {
+                        if (vid3.currentTime > stop3) {
+                            vid3.pause();
+                            if (start3 == "") {
+                                vid3.currentTime = 0;
+                            }
+                            setTime3();
+                            if (vid3.loop == true) {
+                                vid3.play();
+                            }
+                        }
+                    }
+                }
+                function showTime3() {
+                    var time3 = Math.round(vid3.currentTime);
+                    document.getElementById("demo3").innerHTML = time3;
+                }
+                function enableLoop3() {
+                    vid3.loop = true;
+                }
+                function disableLoop3() {
+                    vid3.loop = false;
+                }
+                function addVid3() {
+                    vid3.pause();
+                    $('#green1').append('<button class="btn5">Button</button>');
+                    $('.addedVideos').append('<video id="middleBack2" width="560" controls><source src="middleBack2.mp4" type="video/mp4"</video>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                    Lower Back                       -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <div id="lowerBack">
+        <div class="row">
+            <div class="videoTitle">
+                <font size="6">Muscle Part: Lower Back</font></br>
+                Find the workout that works best for you, play with it, and then add it to your schedule!
+            </div>
+        </div>
+        <br></br>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                   Lower Back Videos                 -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-lg-offset-1">
+                <video id="lowerBack1" width="560" controls>
+                    <source src="lowerBack1.mp4" type="video/mp4">
+                </video>
+                <button class="btn-primary" onclick="normalSpeed4()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed4()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed4()">3x</button>
+                <button class="btn-primary" onclick="enableLoop4()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop4()">Loop off</button>
+                <input type="text" style="width: 56px" placeholder="Start" id="start4">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop4">
+                <button class="btn-primary timer" onclick="setTime4()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid4()">Add Video</button>
+                <p>Time in seconds: <span id="demo4"></span></p>
+                <!-- JS must go in html to work -->
+                <script>
+                var vid4 = document.getElementById("lowerBack1");
+                function normalSpeed4() {
+                    vid4.playbackRate = 1.0;
+                }
+                function twoSpeed4() {
+                    vid4.playbackRate = 2.0;
+                }
+                function threeSpeed4() {
+                    vid4.playbackRate = 3.0;
+                }
+                function setTime4() {
+                    var start4 = document.getElementById("start4").value;
+                    if (start4 != "" && isNaN(start4) == false) {
+                        vid4.currentTime = start4;
+                    }
+                }
+                vid4.ontimeupdate = function() {setPause4(), showTime4()};
+                function setPause4() {
+                    var stop4 = document.getElementById("stop4").value;
+                    var start4 = document.getElementById("start4").value;
+                    if (stop4 != "" && isNaN(stop4) == false) {
+                        if (vid4.currentTime > stop4) {
+                            vid4.pause();
+                            if (start4 == "") {
+                                vid4.currentTime = 0;
+                            }
+                            setTime4();
+                            if (vid4.loop == true) {
+                                vid4.play();
+                            }
+                        }
+                    }
+                }
+                function showTime4() {
+                    var time4 = Math.round(vid4.currentTime);
+                    document.getElementById("demo4").innerHTML = time4;
+                }
+                function enableLoop4() {
+                    vid4.loop = true;
+                }
+                function disableLoop4() {
+                    vid4.loop = false;
+                }
+                function addVid4() {
+                    vid4.pause();
+                    $('#green1').append('<button class="btn6">Button</button>');
+                    $('.addedVideos').append('<video id="lowerBack1" width="560" controls><source src="lowerBack1.mp4" type="video/mp4"</video>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
+                }
+                </script>
+            </div>
+            <div class="col-lg-5">
+                <video id="lowerBack2" width="560" controls>
+                    <source src="lowerBack2.mp4" type="video/mp4">
+                </video>
+                <button class="btn-primary" onclick="normalSpeed5()">1x</button>
+                <button class="btn-primary" onclick="twoSpeed5()">2x</button>
+                <button class="btn-primary" onclick="threeSpeed5()">3x</button>
+                <button class="btn-primary" onclick="enableLoop5()">Loop on</button>
+                <button class="btn-primary" onclick="disableLoop5()">Loop off</button>
+                <input type="text" style="width: 56px" placeholder="Start" id="start5">
+                <input type="text" style="width: 56px" placeholder="Stop" id="stop5">
+                <button class="btn-primary timer" onclick="setTime5()">Set Start/Stop</button>
+                <button class="btn-primary adding" onclick="addVid5()">Add Video</button>
+                <p>Time in seconds: <span id="demo5"></span></p>
+                <!-- JS must go in html to work -->
+                <script>
+                var vid5 = document.getElementById("lowerBack2");
+                function normalSpeed5() {
+                    vid5.playbackRate = 1.0;
+                }
+                function twoSpeed5() {
+                    vid5.playbackRate = 2.0;
+                }
+                function threeSpeed5() {
+                    vid5.playbackRate = 3.0;
+                }
+                function setTime5() {
+                    var start5 = document.getElementById("start5").value;
+                    if (start5 != "" && isNaN(start5) == false) {
+                        vid5.currentTime = start5;
+                    }
+                }
+                vid5.ontimeupdate = function() {setPause5(), showTime5()};
+                function setPause5() {
+                    var stop5 = document.getElementById("stop5").value;
+                    var start5 = document.getElementById("start5").value;
+                    if (stop5 != "" && isNaN(stop5) == false) {
+                        if (vid5.currentTime > stop5) {
+                            vid5.pause();
+                            if (start5 == "") {
+                                vid5.currentTime = 0;
+                            }
+                            setTime5();
+                            if (vid5.loop == true) {
+                                vid5.play();
+                            }
+                        }
+                    }
+                }
+                function showTime5() {
+                    var time5 = Math.round(vid5.currentTime);
+                    document.getElementById("demo5").innerHTML = time5;
+                }
+                function enableLoop5() {
+                    vid5.loop = true;
+                }
+                function disableLoop5() {
+                    vid5.loop = false;
+                }
+                function addVid5() {
+                    vid5.pause();
+                    $('#green1').append('<button class="btn6">Button</button>');
+                    $('.addedVideos').append('<video id="lowerBack2" width="560" controls><source src="lowerBack2.mp4" type="video/mp4"</video>');
+                    $('.addedVideos').append('<br>');
+                    $('.addedVideos').append('<textarea class="notes" cols="68" placeholder="Add some notes to remind yourself!" rows="5"></textarea>');
+                    $('.addedVideos').append('<br>');
+                    $("#introduction").show();
+                    $("#images").show();
+                    $("#schedule").show();
+                    $("#lats").hide();
+                    $("#middleBack").hide();
+                    $("#lowerBack").hide();
+                }
+                </script>
             </div>
         </div>
     </div>
