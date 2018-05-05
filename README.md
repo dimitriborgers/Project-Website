@@ -1,9 +1,9 @@
 # Project-Website
-CS4170
+CS4170 - Columbia DevFest Hackathon
 
 -----
 ### Function
-Video-based website created for User Interface Design
+Video-based website created as a quick workout builder. All videos stored on local database. 
 
 -----
 ### Build
